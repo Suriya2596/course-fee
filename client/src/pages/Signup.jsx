@@ -327,48 +327,61 @@ const Signup = () => {
               // disabled={feeType ? true : false}
             />
           </div>
-          <div className="col-span-12 md:col-span-6">
-            <SelectBox
-              label={"Nationality"}
-              placeholder={"Select Nationality"}
-              value={nationality}
-              onChange={(e) => {
-                setNationality(e);
-                delete formError?.nationality;
-              }}
-              options={nationalityOptions}
-              error={formError?.nationality}
-              // disabled={nationality ? true : false}
-            />
-          </div>
-          <div className="col-span-12 md:col-span-6">
-            <SelectBox
-              label={"Course"}
-              placeholder={"Select course"}
-              value={course}
-              onChange={(e) => {
-                setCourse(e);
-                delete formError?.course;
-              }}
-              options={courseOptions}
-              error={formError?.course}
-              // disabled={course ? true : false}
-            />
-          </div>
-          <div className="col-span-12 md:col-span-6">
-            <SelectBox
-              label={"Level"}
-              placeholder={"Select level"}
-              value={level}
-              onChange={(e) => {
-                setLevel(e);
-                delete formError?.level;
-              }}
-              options={levelOptions}
-              error={formError?.level}
-              // disabled={level ? true : false}
-            />
-          </div>
+          <>
+            {feeType && (
+              <div className="col-span-12 md:col-span-6">
+                <SelectBox
+                  label={"Nationality"}
+                  placeholder={"Select Nationality"}
+                  value={nationality}
+                  onChange={(e) => {
+                    setNationality(e);
+                    delete formError?.nationality;
+                  }}
+                  options={nationalityOptions}
+                  error={formError?.nationality}
+                  // disabled={nationality ? true : false}
+                />
+              </div>
+            )}
+          </>
+
+          <>
+            {nationality && (
+              <div className="col-span-12 md:col-span-6">
+                <SelectBox
+                  label={"Course"}
+                  placeholder={"Select course"}
+                  value={course}
+                  onChange={(e) => {
+                    setCourse(e);
+                    delete formError?.course;
+                  }}
+                  options={courseOptions}
+                  error={formError?.course}
+                  // disabled={course ? true : false}
+                />
+              </div>
+            )}
+          </>
+          <>
+            {course && (
+              <div className="col-span-12 md:col-span-6">
+                <SelectBox
+                  label={"Level"}
+                  placeholder={"Select level"}
+                  value={level}
+                  onChange={(e) => {
+                    setLevel(e);
+                    delete formError?.level;
+                  }}
+                  options={levelOptions}
+                  error={formError?.level}
+                  // disabled={level ? true : false}
+                />
+              </div>
+            )}
+          </>
           <>
             {amount && feeType && nationality && course && level && (
               <div className="amount-display col-span-12 md:col-span-6">
